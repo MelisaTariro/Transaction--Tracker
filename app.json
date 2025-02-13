@@ -1,5 +1,9 @@
 {
   "expo": {
+
+  
+    "entryPoint": "./App.js",
+      
     "name": "TransactionTracker",
     "slug": "TransactionTracker",
     "version": "1.0.0",

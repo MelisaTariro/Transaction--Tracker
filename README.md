@@ -1,50 +1,110 @@
-# Welcome to your Expo app 👋
+Transaction Tracker App 📱💰
+Overview
+The Transaction Tracker is a mobile application built with React Native (Expo) that allows users to:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Log in with a username and password.
+View a list of transactions.
+Add new transactions.
+The app communicates with a Node.js & Express backend to store and retrieve transaction data.
 
-## Get started
+Tech Stack
+Frontend (Mobile App)
+React Native (Expo)
+React Navigation
+Axios (for API requests)
+Backend (Server)
+Node.js
+Express.js
+CORS (Cross-Origin Resource Sharing)
+Installation & Setup
+1️⃣ Clone the Repository
 
-1. Install dependencies
+git clone https://github.com/MelisaTariro/Transaction--Tracker.git
+cd TransactionTracker
+2️⃣ Install Dependencies
+Frontend (React Native)
 
-   ```bash
-   npm install
-   ```
 
-2. Start the app
+npm install
+Backend (Node.js Server)
+cd Backend
+Running the App
+1️⃣ Start the Backend Server
 
-   ```bash
-    npx expo start
-   ```
+node server.js
+Ensure your backend is running on http://<your-computer-ip>:3001.
 
-In the output, you'll find options to open the app in a
+2️⃣ Start the Mobile App
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+cd TransactionTracker
+npx expo start
+If using an iPhone, scan the QR code with the Expo Go app.
+If using an Android, scan the QR code or run expo run:android.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+API Endpoints
+1️⃣ Login
+Endpoint: POST /login
+Request Body:
+{
+  "username": "test",
+  "password": "password"
+}
+Response:
 
-## Get a fresh project
 
-When you're ready, run:
+{
+  "success": true
+}
+2️⃣ Fetch Transactions
+Endpoint: GET /transactions
+Response Example:
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+[
+  {
+    "date": "2025-02-13",
+    "amount": "100",
+    "description": "Groceries"
+  }
+]
+3️⃣ Add a Transaction
+Endpoint: POST /transactions
+Request Body:
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
+{
+  "date": "2025-02-13",
+  "amount": "100",
+  "description": "Groceries"
+}
+Response:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+{
+  "success": true
+}
+Troubleshooting
+🛑 Common Issues & Fixes
+Expo App Unable to Connect to Backend
 
-Join our community of developers creating universal apps.
+Make sure you replaced localhost with your computer’s IP address in API requests.
+Find your IP with:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+ipconfig (Windows) / ifconfig (Mac)
+Update your API calls:
+
+axios.post('http://<your-ip>:3001/login', { username, password });
+Port 3001 Already in Use
+
+Stop any existing process using:
+npx kill-port 3001
+CORS Errors
+
+Modify server.js to allow requests from any origin:
+
+app.use(cors({ origin: '*' }));
+
+Contributors
+👤MelisaTariro
+📧 kapimbitariro@gmail.com
+🔗 GitHub Profile
