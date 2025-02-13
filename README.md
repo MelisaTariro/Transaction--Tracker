@@ -5,9 +5,11 @@ The Transaction Tracker is a mobile application built with React Native (Expo) t
 Log in with a username and password.
 View a list of transactions.
 Add new transactions.
+
 The app communicates with a Node.js & Express backend to store and retrieve transaction data.
 
 Tech Stack
+
 Frontend (Mobile App)
 React Native (Expo)
 React Navigation
@@ -16,11 +18,15 @@ Backend (Server)
 Node.js
 Express.js
 CORS (Cross-Origin Resource Sharing)
+
+
 Installation & Setup
+
 1️⃣ Clone the Repository
 
 git clone https://github.com/MelisaTariro/Transaction--Tracker.git
 cd TransactionTracker
+
 2️⃣ Install Dependencies
 Frontend (React Native)
 
@@ -29,6 +35,7 @@ npm install
 Backend (Node.js Server)
 cd Backend
 Running the App
+
 1️⃣ Start the Backend Server
 
 node server.js
@@ -42,6 +49,7 @@ If using an iPhone, scan the QR code with the Expo Go app.
 If using an Android, scan the QR code or run expo run:android.
 
 API Endpoints
+
 1️⃣ Login
 Endpoint: POST /login
 Request Body:
@@ -55,6 +63,7 @@ Response:
 {
   "success": true
 }
+
 2️⃣ Fetch Transactions
 Endpoint: GET /transactions
 Response Example:
@@ -67,6 +76,7 @@ Response Example:
     "description": "Groceries"
   }
 ]
+
 3️⃣ Add a Transaction
 Endpoint: POST /transactions
 Request Body:
@@ -83,6 +93,8 @@ Response:
 {
   "success": true
 }
+
+
 Troubleshooting
 🛑 Common Issues & Fixes
 Expo App Unable to Connect to Backend
